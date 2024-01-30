@@ -19,7 +19,7 @@ db.once("open", () => {
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors("http://localhost:5173/"));
+app.use(cors());
 app.use('/api', router);
 
 
