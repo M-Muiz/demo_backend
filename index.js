@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 
 
 const app = express();
-app.use(cors());
 const PORT = process.env.PORT;
 
 
@@ -20,10 +19,11 @@ db.once("open", () => {
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors("http://localhost:5173/"));
 app.use('/api', router);
 
 
-app.get("/", (req,res)=>{
+app.get("/", (req, res) => {
   res.json("hello wrold")
 })
 
